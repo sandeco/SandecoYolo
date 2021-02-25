@@ -6,7 +6,7 @@ from random import randrange
 
 class SandecoYolo:
 
-
+    __version__ = "SandecoYolo v1.0.1, Criado por Sandeco Macedo. http://youtube.com/canalsandeco"
 
 
     def __init__(self, lang='pt',
@@ -17,7 +17,7 @@ class SandecoYolo:
 
         classes = self.defineClasses(lang)
 
-        self.__version__ = "SandecoYolo v1.0"
+
         self.classes = classes
         self.cfg = cfg
         self.weights = weights
