@@ -2,6 +2,9 @@ import cv2
 import numpy as np
 import pandas as pd
 from random import randrange
+import os
+import pathlib
+
 
 
 class SandecoYolo:
@@ -14,6 +17,9 @@ class SandecoYolo:
                      weights = "yolov3.weights",
                      threshold = 0.5,
                      GPUSupport = False, specific_classes=None, colors=None, font_scale=0.5):
+
+        self.dir = pathlib.Path(__file__).parent.absolute()
+
 
         classes = self.defineClasses(lang)
 
@@ -77,7 +83,9 @@ class SandecoYolo:
 
     def defineClasses(self, lang):
 
-        df = pd.read_csv('yolo-classes.csv')
+        csv = pathlib.PurePath(self.dir, 'yolo-classes.csv')
+
+        df = pd.read_csv(csv)
         if lang == 'pt':
             classes = df.por.values
         elif lang == 'en':
